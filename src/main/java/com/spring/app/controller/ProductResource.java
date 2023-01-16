@@ -1,4 +1,4 @@
-package com.spring.app.resources;
+package com.spring.app.controller;
 
 import java.util.List;
 
@@ -48,15 +48,15 @@ public class ProductResource {
 		return productRepository.save(product);
 	}
 	
-	@DeleteMapping("/product/{id}")
-	public void productDelete(@PathVariable(value="id") long id) {
-		productRepository.deleteById(id);
-	}
-	
 	@PutMapping("/product/{id}")	
 	public Product productUpdate(@RequestBody Product product, @PathVariable(value="id") long id) {
 		product.setId(id);
 		return productRepository.save(product);
 	}
-
+	
+	@DeleteMapping("/product/{id}")
+	public void productDelete(@PathVariable(value="id") long id) {
+		productRepository.deleteById(id);
+	}
+	
 }
